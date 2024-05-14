@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scene version="0.5.0">
+	<integrator type="photonmapper">
+		<integer name = "directSamples" value = "128"/>
+		<integer name = "glossySamples" value = "128"/>
+		<integer name="maxDepth" value="-1"/>
+		<integer name="rrDepth" value="5"/>
+		<boolean name="hideEmitters" value="false"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="fov" value="54.4322231146"/>
+		<string name="fovAxis" value="x"/>
+		<float name="nearClip" value="0.1"/>
+		<float name="farClip" value="10000.0"/>
+		<transform name="toWorld">
+			<lookat origin="29 40 -50" target="29.026 40 -86.398" up="0 1 0"/>
+		</transform>
+		<sampler type="independent">
+			<integer name="sampleCount" value="1024"/>
+		</sampler>
+		<film type="hdrfilm">
+			<string name="fileFormat" value="openexr"/>
+			<string name="pixelFormat" value="rgba"/>
+			<string name="componentFormat" value="float32"/>
+			<boolean name="attachLog" value="true"/>
+			<boolean name="banner" value="false"/>
+			<boolean name="highQualityEdges" value="false"/>
+			<integer name="height" value="960"/>
+			<integer name="width" value="960"/>
+		</film>
+	</sensor>
+
+	<bsdf type="twosided" id="RWingRoughConductorShader1">
+		<bsdf type="roughconductor">
+			<string name="distribution" value="beckmann"/>
+			<float name="alpha" value="0.10000000149"/>
+			<string name="material" value="Cu"/>
+			<float name="extEta" value="1.0"/>
+			<srgb name="specularReflectance" value="1.0 1.0 1.0"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="dielectric" id="RWingDielectricShader1">
+		<float name="intIOR" value="1.29999995232"/>
+		<float name="extIOR" value="1.0"/>
+		<srgb name="specularReflectance" value="1.0 0.99 0.98"/>
+		<srgb name="specularTransmittance" value="1.0 0.99 0.98"/>
+	</bsdf>
+
+	<bsdf type="twosided" id="RWingDiffuseShader1">
+		<bsdf type="diffuse">
+			<srgb name="reflectance" value="0.5 0.5 0.5"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="diffuse" id="lambert1">
+		<srgb name="reflectance" value="0.5 0.5 0.5"/>
+	</bsdf>
+
+	<emitter type = "envmap">
+		<string name = "filename" value = "leadenhall_blurred.exr"/>
+		<transform name = "toWorld">
+			<rotate y = "1" angle = "90"/>
+		</transform>
+	</emitter>
+
+	<shape type="obj">
+		<string name="filename" value="lightBase.obj"/>
+		<ref id="RWingRoughConductorShader1"/>
+	</shape>
+
+	<shape type="obj">
+		<string name="filename" value="lightTube.obj"/>
+		<ref id="RWingDielectricShader1"/>
+	</shape>
+
+	<shape type="obj">
+        <string name="filename" value="emitter.obj"/>
+        <emitter type="area" id="RWingObjectAreaLightShader1">
+            <rgb name="radiance" value="70.0 69.8 70.0"/>
+            <float name="samplingWeight" value="51"/>
+        </emitter>
+    </shape>
+
+	<!-- <shape id="pCube2_mesh" type="sphere">
+		<transform name="toWorld">
+			<scale value="13.5"/>
+			<translate x="29.018" y="41.286" z="-86.355"/> 
+		</transform>
+		<bsdf type="dielectric">
+			<string name="intIOR" value="air"/>
+			<string name="extIOR" value="air"/>
+		</bsdf>
+	</shape> -->
+
+</scene>
