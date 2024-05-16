@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scene version="0.5.0">
+	<integrator type="photonmapper">
+		<integer name = "directSamples" value = "128"/>
+		<integer name = "glossySamples" value = "128"/>
+		<integer name="maxDepth" value="-1"/>
+		<integer name="rrDepth" value="5"/>
+		<boolean name="hideEmitters" value="false"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="fov" value="70"/>
+		<string name="fovAxis" value="x"/>
+		<float name="nearClip" value="0.1"/>
+		<float name="farClip" value="10000.0"/>
+		<transform name="toWorld">
+			<lookat origin="0 0 -5" target="0 0 0" up="0 1 0"/>
+		</transform>
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="1024"/>
+		</sampler>
+		<film type="hdrfilm">
+			<string name="fileFormat" value="openexr"/>
+			<string name="pixelFormat" value="rgba"/>
+			<boolean name="banner" value="false"/>
+			<boolean name="highQualityEdges" value="false"/>
+			<integer name="height" value="960"/>
+			<integer name="width" value="960"/>
+		</film>
+	</sensor>
+
+	<emitter type = "envmap">
+		<string name = "filename" value = "leadenhall_blurred.exr"/>
+		<transform name = "toWorld">
+			<rotate y = "1" angle = "90"/>
+		</transform>
+	</emitter>
+
+	<shape type="obj" id="metalpart">
+		<string name="filename" value="lum/metalpart.obj"/>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.03"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>		
+	</shape>
+
+	<shape type="obj" id="emitter">
+		<string name="filename" value="lum/emitter.obj"/>
+		<emitter type="area">
+			<rgb name="radiance" value="1000.0 1000.0 1000.0"/>
+		</emitter>
+	</shape>
+
+ 	<shape type="obj" id="glass_part">
+		<string name="filename" value="lum/glass_part.obj"/>
+		<bsdf type="roughdielectric">
+			<string name = "distribution" value="ggx"/>
+			<float name = "alpha" value = "0.5"/>
+            <rgb name = "specularReflectance" value = "1.0 0.9 0.98"/>
+            <rgb name = "specularTransmittance" value = "1.0 0.9 0.98"/>
+		</bsdf>
+	</shape> 
+
+ 	<shape type="obj" id="glass_middle">
+		<string name="filename" value="lum/glass_middle.obj"/>
+		<bsdf type="roughdielectric">
+			<string name = "distribution" value="ggx"/>
+			<float name = "alpha" value = "0.05"/>
+		</bsdf>
+	</shape> 
+
+	<shape type="obj" id="hanger">
+		<string name="filename" value="lum/hanger.obj"/>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.1"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>		
+		<transform name="toWorld">
+			<scale value="0.125"/>
+			<translate y = "-17.84" z = "-19.12"/>
+		</transform>
+	</shape>
+
+	<!-- <shape id="bounding" type="sphere">
+		<transform name="toWorld">
+			<scale value="2.3"/>
+		</transform>
+		<bsdf type="dielectric">
+			<string name="intIOR" value="air"/>
+			<string name="extIOR" value="air"/>
+		</bsdf>
+	</shape> -->
+
+</scene>
