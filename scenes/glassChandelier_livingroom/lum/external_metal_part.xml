@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+	Automatically converted from Wavefront OBJ
+
+-->
+
+<scene version="0.5.0">
+	<integrator id="integrator" type="direct"/>
+
+	<shape id="external_metal_part_mesh" type="serialized">
+		<string name="filename" value="external_metal_part.serialized"/>
+		<integer name="shapeIndex" value="0"/>
+		<bsdf type="diffuse"/>
+	</shape>
+
+</scene>

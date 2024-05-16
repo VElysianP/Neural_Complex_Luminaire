@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.5.0">
+	<integrator type="photonmapper">
+		<integer name = "directSamples" value = "128"/>
+		<integer name = "glossySamples" value = "128"/>
+		<integer name="maxDepth" value="-1"/>
+		<integer name="rrDepth" value="5"/>
+		<boolean name="hideEmitters" value="false"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="fov" value="70"/>
+		<string name="fovAxis" value="x"/>
+		<float name="nearClip" value="0.1"/>
+		<float name="farClip" value="10000.0"/>
+		<transform name="toWorld">
+			<lookat origin="0 0 30" target="0 0 0" up="0 1 0"/>
+		</transform>
+
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="1"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<string name="fileFormat" value="openexr"/>
+			<string name="pixelFormat" value="rgba"/>
+			<string name="componentFormat" value="float32"/>
+			<boolean name="banner" value="false"/>
+			<boolean name="highQualityEdges" value="false"/>
+			<integer name="height" value="960"/>
+			<integer name="width" value="1280"/>
+		</film>
+	</sensor>
+
+    <!-- luminaire -->
+	<!-- <shape id="bounding" type="obj">
+		<string name="filename" value="lum/bounding.obj"/>
+		<bsdf type="dielectric">
+			<string name="intIOR" value="air"/>
+			<string name="extIOR" value="air"/>
+		</bsdf>
+	</shape> -->
+
+	<shape type = "sphere" id = "bounding">
+		<transform name = "toWorld">
+			<scale value = "7.5"/>
+			<translate y = "1.023"/>
+		</transform>
+		<bsdf type="dielectric">
+			<string name="intIOR" value="air"/>
+			<string name="extIOR" value="air"/>
+		</bsdf>
+	</shape>
+
+    <shape id="metal_part_mesh" type="serialized">
+		<string name="filename" value="lum/metal_part.serialized"/>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.1"/>
+            <string name = "material" value = "Au"/>
+		</bsdf>
+	</shape>
+
+	<shape id="glass_part_mesh" type="serialized">
+		<string name="filename" value="lum/glass_part.serialized"/>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.3"/>
+            <float name = "intIOR" value = "1.35"/>
+		</bsdf>
+    </shape>
+
+	<shape type="obj" id="emitters">
+		<string name="filename" value="lum/emitters.obj"/>
+		<emitter type="area">
+			<rgb name="radiance" value="382.5 370.5 345"/>
+		</emitter>
+	</shape>
+
+</scene>
