@@ -1,0 +1,1631 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scene version="0.5.0">
+	<integrator type="bdpt">
+		<integer name="maxDepth" value="-1"/>
+		<integer name="rrDepth" value="5"/>
+		<boolean name="strictNormals" value="false"/>
+		<boolean name="hideEmitters" value="false"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="fov" value="70"/>
+		<string name="fovAxis" value="x"/>
+		<float name="nearClip" value="0.1"/>
+		<float name="farClip" value="10000.0"/>
+		<transform name="toWorld">
+			<lookat origin="-85 12 5" target="-85 13 -20" up="0 1 0"/>
+		</transform>
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="4096"/>
+		</sampler>
+		<film type="hdrfilm">
+			<string name="fileFormat" value="openexr"/>
+			<boolean name = "attachLog" value = "true"/> 
+			<string name="pixelFormat" value="rgba"/>
+			<boolean name="banner" value="false"/>
+			<boolean name="highQualityEdges" value="false"/>
+			<integer name="height" value="720"/>
+			<integer name="width" value="1280"/>
+		</film>
+	</sensor>
+
+	<shape type="ply" id="bathroom_door_frame">
+		<string name="filename" value="scene/bathroom_door_frame_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2316629813124a2.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="bathroom_door_glass">
+		<string name="filename" value="scene/bathroom_door_glass.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.8"/>
+		</bsdf>
+	</shape>
+    
+	<shape type="ply" id="bathroom_door_handle_ply">
+		<string name="filename" value="scene/bathroom_door_handle_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.3"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bathroom_wall">
+		<string name="filename" value="scene/bathroom_wall.ply"/>
+		<bsdf type = "twosided">
+			<bsdf type="roughplastic">
+				<float name = "alpha" value = "0.08"/>
+				<srgb name="reflectance" value="0.9 0.88 0.8"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="ply" id="bed_matress_ply">
+		<string name="filename" value="scene/bed_matress_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="ply" id="bed_pillow_1_ply">
+		<string name="filename" value="scene/bed_pillow_1_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<rgb name="diffuseReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bed_pillow_2_ply">
+		<string name="filename" value="scene/bed_pillow_2_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<rgb name="diffuseReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bed_pillow_3_ply">
+		<string name="filename" value="scene/bed_pillow_3_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<rgb name="diffuseReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bed_pillow4">
+		<string name="filename" value="scene/bed_pillow4.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<rgb name="diffuseReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bedroom_blenket">
+		<string name="filename" value="scene/bedroom_blenket.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/AFzhezhao _5_.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bedroom_frame">
+		<string name="filename" value="scene/bedroom_frame.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2316629813124a2.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bedroom_pillar">
+		<string name="filename" value="scene/bedroom_pillar.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2316629813124a2.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bedroom_glass">
+		<string name="filename" value="scene/bedroom_glass.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.03"/>
+			<float name = "intIOR" value = "1.15"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="bedroom_main_ply">
+		<string name="filename" value="scene/bedroom_main_ply.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/concrete gray.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="ply" id="carpet">
+		<string name="filename" value="scene/carpet.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/carpet-design-texture-texture-rug-contemporary-3-carpet-lugher-texture-library-new-rug-textures-idfggoe-.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book1">
+		<string name="filename" value="scene/cart_book1.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66Model-544884-files-44.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book2">
+		<string name="filename" value="scene/cart_book2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66Model-544884-files-46.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book3">
+		<string name="filename" value="scene/cart_book3.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66Model-544884-files-50.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book4">
+		<string name="filename" value="scene/cart_book4.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/200609120605273753.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book5">
+		<string name="filename" value="scene/cart_book5.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375127.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book6">
+		<string name="filename" value="scene/cart_book6.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375273.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book7">
+		<string name="filename" value="scene/cart_book7.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2006091206052737537.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book8">
+		<string name="filename" value="scene/cart_book8.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375373.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book9">
+		<string name="filename" value="scene/cart_book9.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375381.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book10">
+		<string name="filename" value="scene/cart_book10.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375391.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book11">
+		<string name="filename" value="scene/cart_book11.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375392.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_book12">
+		<string name="filename" value="scene/cart_book12.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375556.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_handles">
+		<string name="filename" value="scene/cart_handles.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.05"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_metal_player">
+		<string name="filename" value="scene/cart_metal_player.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.5"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_metal_player2">
+		<string name="filename" value="scene/cart_metal_player2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.01"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_surfaces">
+		<string name="filename" value="scene/cart_surfaces.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.8"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="cart_wheels">
+		<string name="filename" value="scene/cart_wheels.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "1.2"/>
+			<rgb name="diffuseReflectance" value = "0.01 0.01 0.01"/>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="obj" id="ceiling">
+		<string name="filename" value="scene/ceiling.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+		<srgb name="reflectance" value="0.92 0.9 0.8"/>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="ply" id="ceiling_spotlight_emitter">
+		<string name="filename" value="scene/ceiling_spotlight_emitter.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<emitter type="area">
+			<rgb name="radiance" value="60.0 60.0 60.0"/>
+		</emitter>
+	</shape>
+
+	<shape type="ply" id="ceiling_spotlight_outside">
+		<string name="filename" value="scene/ceiling_spotlight_outside.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.3"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="chair_cushion">
+		<string name="filename" value="scene/chair_cushion.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/AF _2_.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="chair_frame">
+		<string name="filename" value="scene/chair_frame.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.03"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="circle_table">
+		<string name="filename" value="scene/circle_table.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="circle_table_crystal">
+		<string name="filename" value="scene/circle_table_crystal.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.3"/>
+			<rgb name = "specularReflectance" value = "1.0 0.9 0.93"/>
+			<rgb name = "specularTransmittance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="circle_table_crystal2">
+		<string name="filename" value="scene/circle_table_crystal2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "2.0"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="circletable_book">
+		<string name="filename" value="scene/circletable_book.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375817.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_blenket">
+		<string name="filename" value="scene/clothshelf_blenket.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/Fabric_124_mask.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_hat">
+		<string name="filename" value="scene/clothshelf_hat.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/Fabric_124_mask.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_metal">
+		<string name="filename" value="scene/clothshelf_metal.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.03"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_shoes1">
+		<string name="filename" value="scene/clothshelf_shoes1.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_shoes2">
+		<string name="filename" value="scene/clothshelf_shoes2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<rgb name="diffuseReflectance" value = "0.01 0.01 0.01"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_shoes3">
+		<string name="filename" value="scene/clothshelf_shoes3.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "0.2 0.1 0.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="clothshelf_surface">
+		<string name="filename" value="scene/clothshelf_surface.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.3"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/Fabric_124_2_mask.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_umbralla">
+		<string name="filename" value="scene/clothshelf_umbralla.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "2.0"/>
+			<rgb name="diffuseReflectance" value = "0.1 0.1 0.1"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="clothshelf_umbrella_main">
+		<string name="filename" value="scene/clothshelf_umbrella_main.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "0.01 0.01 0.01"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="curtain">
+		<string name="filename" value="scene/curtain.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type = "mixturebsdf">
+			<string name = "weights" value = "0.5 0.5"/>
+			<bsdf type="roughplastic">
+				<float name = "alpha" value = "1.0"/>
+				<rgb name="diffuseReflectance" value = "0.9 0.88 0.8"/>
+			</bsdf>
+			<bsdf type = "roughdielectric">
+				<float name = "alpha" value = "0.02"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="desk_lamp">
+		<string name="filename" value="scene/desk_lamp.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.03"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="desk_main">
+		<string name="filename" value="scene/desk_main.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="door_handle">
+		<string name="filename" value="scene/door_handle.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.3"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="ground">
+		<string name="filename" value="scene/ground.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="ground2">
+		<string name="filename" value="scene/ground2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type = "bumpmap">
+			<bsdf type="roughplastic">
+				<float name = "alpha" value = "0.03"/>
+				<texture name="diffuseReflectance" type="bitmap">
+					<string name="filename" value="texture/dibantietu.jpg"/>
+				</texture>
+			</bsdf>
+			<texture type="scale">
+				<float name = "scale" value = "0.08"/>
+				<texture type="bitmap">
+					<string name="filename" value="texture/dibantietu.jpg"/>
+				</texture>
+			</texture>
+		</bsdf>
+
+	</shape>
+
+	<shape type="ply" id="kitchen_bowls">
+		<string name="filename" value="scene/kitchen_bowls.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.05"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="kitchen_desk_deco">
+		<string name="filename" value="scene/kitchen_desk_deco.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.3"/>
+			<rgb name="diffuseReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="kitchen_desk_main">
+		<string name="filename" value="scene/kitchen_desk_main.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.8"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="kitchen_fridge">
+		<string name="filename" value="scene/kitchen_fridge.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.8"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="kitchen_fridge_deco">
+		<string name="filename" value="scene/kitchen_fridge_deco.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "0.1 0.1 0.1"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="kitchen_sink">
+		<string name="filename" value="scene/kitchen_sink.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.8"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="kitchen_surface">
+		<string name="filename" value="scene/kitchen_surface.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/textured-white-marble-textures-plain.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="laptop_1">
+		<string name="filename" value="scene/laptop_1.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "1.2"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="laptop_2">
+		<string name="filename" value="scene/laptop_2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "1.2"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="laptop_keyboard">
+		<string name="filename" value="scene/laptop_keyboard.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "1.2"/>
+			<rgb name="diffuseReflectance" value = "0.01 0.01 0.01"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="left_painting_frame">
+		<string name="filename" value="scene/left_painting_frame.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="left_painting_painting">
+		<string name="filename" value="scene/left_painting_painting.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/57578067965175485.jpg"/>
+				<float name = "vscale" value = "-1"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="obj" id="lower_ceiling_main">
+		<string name="filename" value="scene/lower_ceiling_main.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.08"/>
+			<rgb name="diffuseReflectance" value = "0.9 0.88 0.8"/>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="ply" id="lower_ceiling_spotlight_emitter">
+		<string name="filename" value="scene/lower_ceiling_spotlight_emitter.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<emitter type="area">
+			<rgb name="radiance" value="20.0 20.0 20.0"/>
+		</emitter>
+	</shape>
+
+	<shape type="ply" id="lower_ceiling_spotlight_out">
+		<string name="filename" value="scene/lower_ceiling_spotlight_out.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.3"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="bulb_glass">
+		<string name="filename" value="star_light/bulb_glass.obj"/>
+		<transform name="toWorld">
+			<scale value="0.5"/>
+			<translate x="-85" y="22" z="-32.32"/>
+		</transform>
+
+		<bsdf type="roughdielectric">
+			<float name="alpha" value="0.5"/>
+		</bsdf>
+		<emitter type="area">
+			<rgb name="radiance" value="1000.0 1000.0 1000.0"/>
+		</emitter>
+	</shape>
+
+ 	<shape type="obj" id="light_external_glass">
+		<string name="filename" value="star_light/light_external_glass.obj"/>
+		<transform name="toWorld">
+			<scale value="0.5"/>
+			<translate x="-85" y="22" z="-32.32"/>
+		</transform>
+
+		 <bsdf type="dielectric">
+		
+			<rgb name="specularTransmittance" value="1.0 1.0 1.0"/>
+			<rgb name="specularReflectance" value="1.0 1.0 1.0"/>
+		</bsdf> 
+		<emitter type="area">
+			<rgb name="radiance" value="1.0 1.0 1.0"/>
+		</emitter>
+	</shape> 
+
+	<shape type="obj" id="light_external_wire">
+		<string name="filename" value="star_light/light_external_wire.obj"/>
+		<transform name="toWorld">
+			<scale value="0.485"/>
+			<translate x="-85" y="22" z="-32.32"/>
+		</transform>
+
+		<bsdf type="diffuse">
+		<srgb name="reflectance" value="0.0 0.0 0.0"/>
+	</bsdf>
+	</shape>
+
+	<shape type="obj" id="hanger">
+		<string name="filename" value="star_light/hanger.obj"/>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.05"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>		
+	</shape>
+
+
+
+	<shape type="ply" id="main_door">
+		<string name="filename" value="scene/main_door.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type = "bumpmap">
+			<bsdf type="roughplastic">
+				<float name = "alpha" value = "0.03"/>
+				<texture name="diffuseReflectance" type="bitmap">
+					<string name="filename" value="texture/3d66_com-muwen _30_.jpg"/>
+				</texture>
+			</bsdf>
+			<texture type="scale">
+				<float name = "scale" value = "0.2"/>
+				<texture type="bitmap">
+					<string name="filename" value="texture/3d66_com-muwen _30_.jpg"/>
+				</texture>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant_leave">
+		<string name="filename" value="scene/plant_leave.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/list_013.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant1_base">
+		<string name="filename" value="scene/plant1_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66Model-544884-files-88.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant1_branch">
+		<string name="filename" value="scene/plant1_branch.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66Model-544884-files-72.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant1_soil">
+		<string name="filename" value="scene/plant1_soil.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/rysn3may5mex08phv8wk6ihhp5n6sebl16ugsqnnmzkdkcbmop0czvbrg30ft3hz-.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant2_base">
+		<string name="filename" value="scene/plant2_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant2_leaves">
+		<string name="filename" value="scene/plant2_leaves.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.4"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66Model-544884-files-130.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant2_soil">
+		<string name="filename" value="scene/plant2_soil.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/rysn3may5mex08phv8wk6ihhp5n6sebl16ugsqnnmzkdkcbmop0czvbrg30ft3hz-.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant3_base">
+		<string name="filename" value="scene/plant3_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant3_leaves">
+		<string name="filename" value="scene/plant3_leaves.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.4"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/ficus_lir2_01.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant4_leaves">
+		<string name="filename" value="scene/plant4_leaves.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.5"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/succulent_02.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant4_base">
+		<string name="filename" value="scene/plant4_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant4_soil">
+		<string name="filename" value="scene/plant4_soil.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/rysn3may5mex08phv8wk6ihhp5n6sebl16ugsqnnmzkdkcbmop0czvbrg30ft3hz-.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant5_leaves">
+		<string name="filename" value="scene/plant5_leaves.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.5"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/leaf_aloe_3.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant5_base">
+		<string name="filename" value="scene/plant5_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant5_soil">
+		<string name="filename" value="scene/plant5_soil.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/rysn3may5mex08phv8wk6ihhp5n6sebl16ugsqnnmzkdkcbmop0czvbrg30ft3hz-.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant6_leaves">
+		<string name="filename" value="scene/plant6_leaves.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.5"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/list_03.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="plant6_bases">
+		<string name="filename" value="scene/plant6_bases.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "2.5"/>
+			<texture name="specularReflectance" type="bitmap">
+				<string name="filename" value="texture/wpvxn7v2l1tfvveqpqfxo260s1kxgi1bftviyf4dhdgh7mgvm6rqw4k16vytv6nc-.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="right_painting_frame">
+		<string name="filename" value="scene/right_painting_frame.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="right_painting1">
+		<string name="filename" value="scene/right_painting1.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting1.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="right_painting2">
+		<string name="filename" value="scene/right_painting2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting2.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="right_painting3">
+		<string name="filename" value="scene/right_painting3.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting3.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="right_painting4">
+		<string name="filename" value="scene/right_painting4.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting4.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="right_painting5">
+		<string name="filename" value="scene/right_painting5.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse">
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting5.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="shelf_base">
+		<string name="filename" value="scene/shelf_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="shelf_deer">
+		<string name="filename" value="scene/shelf_deer.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "1.0"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="sofa_blanket">
+		<string name="filename" value="scene/sofa_blanket.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<rgb name="diffuseReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="sofa_main">
+		<string name="filename" value="scene/sofa_main.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.3"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/AF _2_.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="sofa_pillow_1">
+		<string name="filename" value="scene/sofa_pillow_1.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting2.png"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="sofa_pillow_2">
+		<string name="filename" value="scene/sofa_pillow_2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/xiadele_fabric_2.jpg"/>
+				<float name = "vscale" value = "-1.0"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="sofa_pillow_3">
+		<string name="filename" value="scene/sofa_pillow_3.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/painting5.png"/>
+				<float name = "vscale" value = "-1.0"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="stair_base">
+		<string name="filename" value="scene/stair_base.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66_com-muwen _30_.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="stair_frame">
+		<string name="filename" value="scene/stair_frame.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2316629813124a2.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="stair_glass">
+		<string name="filename" value="scene/stair_glass.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.03"/>
+			<float name = "intIOR" value = "1.15"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="stairs">
+		<string name="filename" value="scene/stairs.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/3d66_com-muwen _30_.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="stand_lamp_handle">
+		<string name="filename" value="scene/stand_lamp_handle.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "2.5"/>
+			<rgb name="diffuseReflectance" value = "0.01 0.01 0.01"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="stand_lamp_main">
+		<string name="filename" value="scene/stand_lamp_main.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.05"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tv_frame">
+		<string name="filename" value="scene/tv_frame.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "0.01 0.01 0.01"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tv_logo">
+		<string name="filename" value="scene/tv_logo.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.1"/>
+            <string name = "material" value = "Ag"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="tv_screen">
+		<string name="filename" value="scene/tv_screen.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.5"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book1">
+		<string name="filename" value="scene/tvshelf_book1.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375815.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book2">
+		<string name="filename" value="scene/tvshelf_book2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375815.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book3">
+		<string name="filename" value="scene/tvshelf_book3.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375392.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book4">
+		<string name="filename" value="scene/tvshelf_book4.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375579.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book5">
+		<string name="filename" value="scene/tvshelf_book5.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375514.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book6">
+		<string name="filename" value="scene/tvshelf_book6.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375556.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book7">
+		<string name="filename" value="scene/tvshelf_book7.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375929.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book8">
+		<string name="filename" value="scene/tvshelf_book8.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375400.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_book9">
+		<string name="filename" value="scene/tvshelf_book9.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/20060912060527375391.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_box">
+		<string name="filename" value="scene/tvshelf_box.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="diffuse"> 
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/canjuangongzuoshi-subuwen2-qq_205221165 _6_.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_frame1">
+		<string name="filename" value="scene/tvshelf_frame1.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2006091206052737563.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="tvshelf_frame2">
+		<string name="filename" value="scene/tvshelf_frame2.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<texture name="diffuseReflectance" type="bitmap">
+				<string name="filename" value="texture/2006091206052737585.jpg"/>
+			</texture>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="tvshelf_main">
+		<string name="filename" value="scene/tvshelf_main.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.1"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+	<!-- tbd -->
+	<shape type="obj" id="wall1">
+		<string name="filename" value="scene/wall1.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type = "twosided">
+			<bsdf type="roughplastic">
+				<float name = "alpha" value = "0.08"/>
+				<srgb name="reflectance" value="0.72 0.704 0.64"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="wall2">
+		<string name="filename" value="scene/wall2.obj"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.08"/>
+			<rgb name="diffuseReflectance" value = "0.72 0.704 0.64"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="waredore_handle">
+		<string name="filename" value="scene/waredore_handle.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.3"/>
+			<rgb name="specularReflectance" value = "1.0 0.9 0.93"/>
+		</bsdf>
+	</shape>
+
+	<shape type="ply" id="waredore_main">
+		<string name="filename" value="scene/waredore_main.ply"/>
+		<transform name = "toWorld">
+			<scale value = "0.1"/>
+		</transform>
+		<bsdf type="roughplastic">
+			<float name = "alpha" value = "0.03"/>
+			<rgb name="diffuseReflectance" value = "1.0 1.0 1.0"/>
+		</bsdf>
+	</shape>
+
+
+	<!-- helper emitter -->
+	<shape type="ply" id="helper_emitter_ply">
+		<string name="filename" value="scene/helper_emitter_ply.ply"/>
+		<emitter type="area">
+			<rgb name="radiance" value="3 3 3"/>
+		</emitter>
+	</shape>
+
+</scene>
