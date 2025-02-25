@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene version="0.5.0">
+	<integrator type="photonmapper">
+		<integer name = "directSamples" value = "128"/>
+		<integer name = "glossySamples" value = "128"/>
+		<integer name="maxDepth" value="-1"/>
+		<integer name="rrDepth" value="5"/>
+		<boolean name="hideEmitters" value="false"/>
+	</integrator>
+
+	<sensor type="perspective">
+		<float name="fov" value="70"/>
+		<string name="fovAxis" value="x"/>
+		<float name="nearClip" value="0.1"/>
+		<float name="farClip" value="10000.0"/>
+		<transform name="toWorld">
+			<lookat origin="0 145 100" target="0 145 152" up="0 1 0"/>
+		</transform>
+
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="1024"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<string name="fileFormat" value="openexr"/>
+			<string name="pixelFormat" value="rgba"/>
+			<string name="componentFormat" value="float32"/>
+			<boolean name="banner" value="false"/>
+			<boolean name="highQualityEdges" value="false"/>
+			<integer name="height" value="960"/>
+			<integer name="width" value="960"/>
+		</film>
+	</sensor>
+
+	<!-- <shape id="bounding" type="sphere">
+        <transform name="toWorld">
+			<scale value = "15.5"/>
+            <translate x = "0.438" y = "145.658" z = "152.247"/>
+		</transform>
+		<bsdf type="dielectric">
+			<string name="intIOR" value="air"/>
+			<string name="extIOR" value="air"/>
+		</bsdf>
+	</shape> -->
+
+	<emitter type = "envmap">
+		<string name = "filename" value = "leadenhall_blurred.exr"/>
+		<transform name = "toWorld">
+			<rotate y = "1" angle = "90"/>
+		</transform>
+	</emitter>
+
+	<shape type="obj" id="lum_base">
+		<string name="filename" value="featherlum/lum_base.obj"/>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.1"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape id="lum_leaves_mesh" type="serialized">
+		<string name="filename" value="featherlum/lum_leaves.serialized"/>
+		<integer name="shapeIndex" value="0"/>
+		<bsdf type="twosided">
+			<bsdf type = "roughplastic">
+				<float name = "alpha" value = "0.1"/>
+				<rgb name = "diffuseReflectance" value = "1.0 1.0 1.0"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="lum_bulb_emitter">
+		<string name="filename" value="featherlum/lum_bulb_emitter.obj"/>
+		<emitter type="area">
+			<rgb name="radiance" value="2500.0 2500.0 2500.0"/>
+		</emitter>
+	</shape>
+
+	<shape type="obj" id="lum_bulb_glass">
+		<string name="filename" value="featherlum/lum_bulb_glass.obj"/>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.01"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="lum_hanger_int">
+		<string name="filename" value="featherlum/lum_hanger_int.obj"/>
+		<bsdf type="roughconductor">
+			<float name = "alpha" value = "0.1"/>
+            <string name = "material" value = "Cu"/>
+		</bsdf>
+	</shape>
+
+	<shape type="obj" id="lum_sphere">
+		<string name="filename" value="featherlum/lum_sphere.obj"/>
+		<bsdf type="roughdielectric">
+			<float name = "alpha" value = "0.03"/>
+		</bsdf>
+	</shape>
+
+</scene>
